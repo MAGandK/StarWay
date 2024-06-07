@@ -11,19 +11,4 @@ public class BulletMove : MonoBehaviour
     {
         GetComponent<Rigidbody>().velocity = transform.forward * _speedBullet;
     }
-    private void OnEnable()
-    {
-        AsteroidTrigger.OnAsteroidDestroyed += AsteroidDestroyed;
-    }
-
-    private void AsteroidDestroyed()
-    {
-        PlayerShoots.ReturnObjectToPool(gameObject);
-        Debug.Log("Пуля в стопку");
-    }
-    
-    private void OnDisable()
-    {
-        AsteroidTrigger.OnAsteroidDestroyed -= AsteroidDestroyed;
-    }
 }

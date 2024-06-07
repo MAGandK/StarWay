@@ -7,6 +7,6 @@ public class DestroyExitObject : MonoBehaviour
 {
     private void OnTriggerExit(Collider other)
     {
-        PlayerShoots.ReturnObjectToPool(gameObject);
+        PlayerShoots.ReturnObjectToPool(other.gameObject);
     }
 }

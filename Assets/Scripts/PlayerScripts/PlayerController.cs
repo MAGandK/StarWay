@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class Boundary
@@ -11,13 +12,31 @@ public class Boundary
 
 public class PlayerController : MonoBehaviour
 {
+   public static PlayerController Instanse;
+   
    [SerializeField] private float _speedPlayer;
-   [SerializeField] private float _bank;
-
+   [SerializeField] private float _bankPlayer;
+   [SerializeField] private float _healthPlayer;
+   
    [SerializeField] private Boundary _boundary;
 
    private Rigidbody _rbPlayer;
-
+   
+   public delegate void TakeDamage();
+   public static TakeDamage OnTakeDamage;
+   public delegate void DiedPlayer();
+   public static DiedPlayer OnDiedPlayer;
+   private void Awake()
+   {
+      if (Instanse == null)
+      {
+         Instanse = this;
+      }
+      else
+      {
+         Destroy(gameObject);
+      }
+   }
    private void Start()
    {
       _rbPlayer = GetComponent<Rigidbody>();
@@ -39,6 +58,27 @@ public class PlayerController : MonoBehaviour
          Math.Clamp(_rbPlayer.position.z, _boundary.zMin, _boundary.zMax)
       );
      
-      _rbPlayer.rotation = Quaternion.Euler( 0,0, _rbPlayer.velocity.x * -_bank);
+      _rbPlayer.rotation = Quaternion.Euler( 0,0, _rbPlayer.velocity.x * -_bankPlayer);
+   }
+
+   public void TakedDamage()
+   {
+      if (_healthPlayer > 0)
+      {
+         _healthPlayer--;
+         Debug.Log(_healthPlayer);
+      }
+      else if (_healthPlayer <=0)
+      {
+         DiePlayer();
+      }
+      
+      OnTakeDamage?.Invoke();
+   }
+   
+   private void DiePlayer()
+   {
+      OnDiedPlayer?.Invoke();
+      gameObject.SetActive(false);
    }
 }
