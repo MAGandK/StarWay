@@ -18,7 +18,6 @@ public class AsteroidTrigger : MonoBehaviour
         else if (other.gameObject.tag == "Player")
         {
            PlayerController.Instanse.TakedDamage();
-           Debug.Log("Сталкновение");
         }
     }
 }

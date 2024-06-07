@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour
       if (_healthPlayer > 0)
       {
          _healthPlayer--;
-         Debug.Log(_healthPlayer);
       }
       else if (_healthPlayer <=0)
       {
