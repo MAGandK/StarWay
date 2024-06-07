@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class Boundary
 {
-   public float xMin, xMax, yMin, yMax;
+   public float xMin, xMax, zMin, zMax;
 }
 
 public class PlayerController : MonoBehaviour
@@ -28,16 +28,17 @@ public class PlayerController : MonoBehaviour
       float moveHorizontal = Input.GetAxis("Horizontal");
       float moveVertical = Input.GetAxis("Vertical");
 
-      Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
+      Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
       _rbPlayer.velocity = movement * _speedPlayer;
-      _rbPlayer.rotation = Quaternion.Euler( -90,0, _rbPlayer.velocity.x * -_bank);
 
      _rbPlayer.position = new Vector3
       (
          Math.Clamp(_rbPlayer.position.x, _boundary.xMin, _boundary.xMax),
-         Math.Clamp(_rbPlayer.position.y, _boundary.yMin, _boundary.yMax),
-         0.0f
+         0.0f,
+         Math.Clamp(_rbPlayer.position.z, _boundary.zMin, _boundary.zMax)
       );
+     
+      _rbPlayer.rotation = Quaternion.Euler( 0,0, _rbPlayer.velocity.x * -_bank);
    }
 }
