@@ -1,22 +1,14 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-
-[System.Serializable]
-public class BoundaryAsteroid
-{
-    public float xMin, xMax;
-}
 public class SpawnAsteroids : MonoBehaviour
 {
     [SerializeField] private GameObject[] _asteroids;
     [SerializeField] private Transform _spawnAsteroids;
     [SerializeField] private int _initialSize;
     [SerializeField] private float _spawnInterval;
-    [SerializeField] private BoundaryAsteroid _boundaryAsteroid;
+    [SerializeField] private Boundary _boundaryAsteroid;
     
     private List<GameObject> _asteroidsPrefabs;
     private float _timer;
@@ -48,7 +40,7 @@ public class SpawnAsteroids : MonoBehaviour
     {
         foreach (var asteroid in _asteroidsPrefabs)
         {
-            if (!asteroid.activeInHierarchy)
+            if (asteroid != null && !asteroid.activeInHierarchy)
             {
                 return asteroid;
             }

@@ -6,7 +6,7 @@ public class Counter : MonoBehaviour
     [SerializeField] private TMP_Text _countEnemyText;
     [SerializeField] private GameObject[] _playerHearts;
     
-    private int _asteroidsCount = 0;
+    private int _enemyCount = 0;
     private int _playerHealthCount = 3;
     
 
@@ -14,6 +14,7 @@ public class Counter : MonoBehaviour
     {
         PlayerController.OnTakeDamage += PlayerControllerOnTakeDamage;
         AsteroidTrigger.OnAsteroidDestroyed += AsteroidTriggerOnAsteroidDestroyed;
+        EnemyTrigger.OnEnemyDestroyed += EnemyTriggerOnEnemyDestroyed;
     }
     
     private void Start()
@@ -23,7 +24,7 @@ public class Counter : MonoBehaviour
 
     private void AsteroidTriggerOnAsteroidDestroyed()
     {
-        _asteroidsCount++;
+        _enemyCount++;
         UpdateCountText();
     }
 
@@ -38,11 +39,17 @@ public class Counter : MonoBehaviour
     
     private void UpdateCountText()
     {
-        _countEnemyText.text = _asteroidsCount.ToString();
+        _countEnemyText.text = _enemyCount.ToString();
+    }
+    private void EnemyTriggerOnEnemyDestroyed()
+    {
+        _enemyCount++;
+        UpdateCountText();
     }
     private void OnDisable()
     {
         PlayerController.OnTakeDamage -= PlayerControllerOnTakeDamage;
         AsteroidTrigger.OnAsteroidDestroyed -= AsteroidTriggerOnAsteroidDestroyed;
+        EnemyTrigger.OnEnemyDestroyed -= EnemyTriggerOnEnemyDestroyed;
     }
 }

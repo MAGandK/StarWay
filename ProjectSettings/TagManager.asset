@@ -6,15 +6,17 @@ TagManager:
   tags:
   - Asteroid
   - Bullet
+  - Boundary
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Boundary
   - Water
   - UI
-  - 
-  - 
+  - Enemy
+  - Player
   - 
   - 
   - 

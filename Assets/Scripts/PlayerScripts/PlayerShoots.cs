@@ -43,7 +43,7 @@ public class PlayerShoots : MonoBehaviour
    {
        foreach (var bullet in _bulletsPool)
        {
-           if (!bullet.activeInHierarchy)
+           if (bullet != null && !bullet.activeInHierarchy)
            {
                return bullet;
            }

@@ -3,7 +3,17 @@ guid: f09cfa6bf84bb4056860bcc6ba704084
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vehicle_enemyShip_glow_mat
+    second: {fileID: 2100000, guid: 33bf9b8e48e79415b8333a7e576f32ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: vehicle_enemyShip_metal_mat
+    second: {fileID: 2100000, guid: 25b204250b627422fa3ab5e6417693c2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

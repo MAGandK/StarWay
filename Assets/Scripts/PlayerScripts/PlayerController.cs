@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
       {
          _healthPlayer--;
       }
-      else if (_healthPlayer <=0)
+      else if (_healthPlayer <= 0)
       {
          DiePlayer();
       }

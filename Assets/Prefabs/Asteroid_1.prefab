@@ -13,13 +13,13 @@ GameObject:
   - component: {fileID: 6984769379979078306}
   - component: {fileID: 4874965252988501082}
   - component: {fileID: 8204996138697941460}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Asteroid_1
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6341186967499971761
 Transform:
   m_ObjectHideFlags: 0
@@ -103,6 +103,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c90fd1617a249338b569d870fbf36e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+--- !u!1001 &2209476467204909423
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2876922731813834850}
+    m_Modifications:
+    - target: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+      propertyPath: m_Name
+      value: explosion_asteroid
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+--- !u!4 &2209476467204781035 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+  m_PrefabInstance: {fileID: 2209476467204909423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2334650789835831177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -160,12 +223,19 @@ PrefabInstance:
       value: prop_asteroid_01
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 611c7f3092f364a3baf7a66cc35bb8c5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 611c7f3092f364a3baf7a66cc35bb8c5, type: 3}
       propertyPath: m_TagString
       value: Asteroid
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 611c7f3092f364a3baf7a66cc35bb8c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2209476467204781035}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 611c7f3092f364a3baf7a66cc35bb8c5, type: 3}
       insertIndex: -1
