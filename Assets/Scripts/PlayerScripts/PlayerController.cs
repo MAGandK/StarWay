@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
    
    [SerializeField] private float _speedPlayer;
    [SerializeField] private float _bankPlayer;
-   [SerializeField] private float _healthPlayer;
+   [SerializeField] private int _healthPlayer;
    
    [SerializeField] private Boundary _boundary;
 
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
    public static TakeDamage OnTakeDamage;
    public delegate void DiedPlayer();
    public static DiedPlayer OnDiedPlayer;
+   
    private void Awake()
    {
       if (Instanse == null)
@@ -66,18 +67,31 @@ public class PlayerController : MonoBehaviour
       if (_healthPlayer > 0)
       {
          _healthPlayer--;
+         OnTakeDamage?.Invoke();
       }
       else if (_healthPlayer <= 0)
       {
          DiePlayer();
       }
-      
-      OnTakeDamage?.Invoke();
    }
    
    private void DiePlayer()
    {
       OnDiedPlayer?.Invoke();
       gameObject.SetActive(false);
+   }
+   
+   private void OnTriggerEnter(Collider other)
+   {
+      if (other.tag == "Asteroid" || other.tag == "BulletEnemy")
+      {
+         TakedDamage();
+         Destroy(other.gameObject); 
+      }
+
+      if (other.tag == "Enemy" )
+      {
+         DiePlayer();
+      }
    }
 }

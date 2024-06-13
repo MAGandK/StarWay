@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class RestartWindow : MonoBehaviour
 {
     [SerializeField] private Button _buttonRestart;
+    [SerializeField] private Button _buttonExitIcon;
     [SerializeField] private Button _buttonExit;
     private int _stopTime;
     private int _startTime;
@@ -22,7 +23,7 @@ public class RestartWindow : MonoBehaviour
         GameController.Instance.RestartLevel();
     }
 
-    private void OnExitButtonClick()
+    private void OnExitButtonClickIcon()
     {
         ShowPopups.Instance.ClosePopup();
     
@@ -30,6 +31,17 @@ public class RestartWindow : MonoBehaviour
     #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
     #endif
+        Application.Quit();
+    }
+    
+    private void OnExitButtonClick()
+    {
+        ShowPopups.Instance.ClosePopup();
+    
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
         Application.Quit();
     }
 }

@@ -9,7 +9,6 @@ public class WeaponController : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Fire метод работает");
         InvokeRepeating("Fire", _delay, _fireRate);
     }
 

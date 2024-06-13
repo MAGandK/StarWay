@@ -6,9 +6,14 @@ using UnityEngine;
 public class BulletMove : MonoBehaviour
 {
     [SerializeField] private int _speedBullet;
-
+    private Rigidbody _rb;
     private void Start()
     {
-        GetComponent<Rigidbody>().velocity = transform.forward * _speedBullet;
+        _rb = GetComponent<Rigidbody>();
+    }
+
+    private void FixedUpdate()
+    {
+        _rb.velocity = transform.forward * _speedBullet;
     }
 }

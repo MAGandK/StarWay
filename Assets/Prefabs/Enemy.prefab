@@ -4911,8 +4911,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shot: {fileID: 2995040598730891899, guid: ac028af94488b4e1d81833417cdb8ef6, type: 3}
   _shotSpawn: {fileID: 8309940806813644546}
-  _fireRate: 5
-  _delay: 10
+  _fireRate: 1
+  _delay: 1
 --- !u!114 &7131954200529100091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4932,12 +4932,12 @@ MonoBehaviour:
     xMax: 6
     zMin: -8
     zMax: 8
-  _tilt: 2
-  _dodge: 3
-  _smoothing: 5
-  _startWait: {x: 0.05, y: 0.06}
-  _waveTimer: {x: 5, y: 10}
-  _waveWait: {x: 3, y: 5}
+  _tilt: 1
+  _dodge: 2
+  _smoothing: 7
+  _startWait: {x: 0.5, y: 1}
+  _waveTimer: {x: 0.6, y: 1}
+  _waveWait: {x: 1, y: 2}
 --- !u!114 &4682766620106607186
 MonoBehaviour:
   m_ObjectHideFlags: 0

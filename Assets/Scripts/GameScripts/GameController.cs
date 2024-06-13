@@ -22,15 +22,15 @@ public class GameController : MonoBehaviour
         ShowPopups.Instance.ShowPopup();
         Time.timeScale = 0;
     }
-
-    private void OnDisable()
-    {
-        PlayerController.OnDiedPlayer -= PlayerControllerOnDiedPlayer;
-    }
     
     public void RestartLevel()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
+    private void OnDisable()
+    {
+        PlayerController.OnDiedPlayer -= PlayerControllerOnDiedPlayer;
     }
 }

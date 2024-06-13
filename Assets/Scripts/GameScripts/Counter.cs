@@ -9,12 +9,11 @@ public class Counter : MonoBehaviour
     private int _enemyCount = 0;
     private int _playerHealthCount = 3;
     
-
     private void OnEnable()
     {
         PlayerController.OnTakeDamage += PlayerControllerOnTakeDamage;
-        AsteroidTrigger.OnAsteroidDestroyed += AsteroidTriggerOnAsteroidDestroyed;
-        EnemyTrigger.OnEnemyDestroyed += EnemyTriggerOnEnemyDestroyed;
+        AsteroidController.OnAsteroidDestroyed += AsteroidTriggerOnAsteroidDestroyed;
+        EnemyController.OnEnemyDestroyed += EnemyTriggerOnEnemyDestroyed;
     }
     
     private void Start()
@@ -49,7 +48,7 @@ public class Counter : MonoBehaviour
     private void OnDisable()
     {
         PlayerController.OnTakeDamage -= PlayerControllerOnTakeDamage;
-        AsteroidTrigger.OnAsteroidDestroyed -= AsteroidTriggerOnAsteroidDestroyed;
-        EnemyTrigger.OnEnemyDestroyed -= EnemyTriggerOnEnemyDestroyed;
+        AsteroidController.OnAsteroidDestroyed -= AsteroidTriggerOnAsteroidDestroyed;
+        EnemyController.OnEnemyDestroyed -= EnemyTriggerOnEnemyDestroyed;
     }
 }
