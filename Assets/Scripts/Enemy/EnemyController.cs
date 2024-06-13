@@ -5,7 +5,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private GameObject _explosionEnemy;
 
     public delegate void EnemyDestroyed();
-
     public static event EnemyDestroyed OnEnemyDestroyed;
 
     private void OnTriggerEnter(Collider other)

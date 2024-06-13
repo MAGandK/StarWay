@@ -7,6 +7,9 @@ public class AsteroidController : MonoBehaviour
 
     public delegate void AsteroidDestroyed();
     public static event AsteroidDestroyed OnAsteroidDestroyed;
+    
+    public delegate void AsteroidDieByPlayer();
+    public static event AsteroidDieByPlayer OnDieByPlayer;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,15 +23,16 @@ public class AsteroidController : MonoBehaviour
             Instantiate(_explosion, transform.position, transform.rotation);
         }
 
-        if (other.tag == "Bullet" || other.tag == "Enemy")
+        if (other.tag == "BulletEnemy" || other.tag == "Enemy")
         {
             DieAsteroid();
             Destroy(other.gameObject);
         }
-        else if (other.tag == "Player")
+        else if (other.tag == "Player" || other.tag == "Bullet")
         {
-            DieAsteroid();
+            OnDieByPlayer?.Invoke();
             PlayerController.Instanse.TakedDamage();
+            DieAsteroid();
         }
         
         SpawnAsteroids.ReturnAsteroidToPool(gameObject);
