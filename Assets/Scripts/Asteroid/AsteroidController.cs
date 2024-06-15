@@ -4,6 +4,7 @@ using UnityEngine;
 public class AsteroidController : MonoBehaviour
 {
     [SerializeField] private GameObject _explosion;
+    [SerializeField] private float explosionLifetime = 2.0f;
 
     public delegate void AsteroidDestroyed();
     public static event AsteroidDestroyed OnAsteroidDestroyed;
@@ -20,7 +21,8 @@ public class AsteroidController : MonoBehaviour
 
         if (_explosion != null)
         {
-            Instantiate(_explosion, transform.position, transform.rotation);
+            GameObject newExplosion = Instantiate(_explosion, transform.position, transform.rotation);
+            Destroy( newExplosion, explosionLifetime);
         }
 
         if (other.tag == "BulletEnemy" || other.tag == "Enemy")

@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private GameObject _explosionEnemy;
+    [SerializeField] private float explosionLifetime = 2.0f;
 
     public delegate void EnemyDestroyed();
     public static event EnemyDestroyed OnEnemyDestroyed;
@@ -16,15 +17,14 @@ public class EnemyController : MonoBehaviour
 
         if (_explosionEnemy != null)
         {
-            Instantiate(_explosionEnemy, transform.position, transform.rotation);
+            GameObject newExplosion = Instantiate(_explosionEnemy, transform.position, transform.rotation);
+            Destroy(newExplosion, explosionLifetime);
         }
 
         if (other.tag != "BulletEnemy")
         {
             OnEnemyDestroyed?.Invoke();
-            GameObject newExplosion = Instantiate(_explosionEnemy, other.transform.position, other.transform.rotation);
             EnemySpawner.ReturnEnemyToPool(gameObject);
-            Destroy(newExplosion);
             Destroy(other.gameObject);
         }
     }
