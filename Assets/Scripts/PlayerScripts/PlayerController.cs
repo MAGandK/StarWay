@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [System.Serializable]
 public class Boundary
@@ -21,6 +18,14 @@ public class PlayerController : MonoBehaviour
    [SerializeField] private Boundary _boundary;
 
    private Rigidbody _rbPlayer;
+   
+   private Vector2 _moveInput;
+
+   public Vector2 MoveInput
+   {
+      get => _moveInput;
+      set => _moveInput = value;
+   }
    
    public delegate void TakeDamage();
    public static TakeDamage OnTakeDamage;
@@ -45,10 +50,11 @@ public class PlayerController : MonoBehaviour
 
    private void FixedUpdate()
    {
-      float moveHorizontal = Input.GetAxis("Horizontal");
-      float moveVertical = Input.GetAxis("Vertical");
+      // float moveHorizontal = Input.GetAxis("Horizontal");
+      // float moveVertical = Input.GetAxis("Vertical");
 
-      Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+      //Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+      Vector3 movement = new Vector3(_moveInput.x, 0.0f, _moveInput.y);
 
       _rbPlayer.velocity = movement * _speedPlayer;
 

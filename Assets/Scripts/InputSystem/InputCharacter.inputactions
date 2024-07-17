@@ -1,0 +1,45 @@
+{
+    "name": "InputCharacter",
+    "maps": [
+        {
+            "name": "keyBoard",
+            "id": "b0127cf2-bdfb-4fbc-8a22-3a350919365a",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "93034ac4-6166-40a5-a762-a57826df8fbf",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "865524e6-e351-4385-9701-e54605cd4f35",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "31856e1e-2ccc-431d-828f-50dfd25254e5",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
